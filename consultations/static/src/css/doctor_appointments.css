@@ -1,0 +1,4 @@
+.o_form_label.custom_red label {
+    color: red !important;
+    font-weight: bold;
+}

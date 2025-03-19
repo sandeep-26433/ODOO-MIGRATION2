@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="consultation_doctor_tree" model="ir.ui.view">
+        <field name="model">consultation.doctor</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="consultation_doctor_form" model="ir.ui.view">
+        <field name="name">consultation.doctor.form</field>
+        <field name="model">consultation.doctor</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="consultation_doctor_action" model="ir.actions.act_window">
+        <field name="name">Consultation Doctor</field>
+        <field name="res_model">consultation.doctor</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Records Yet!!!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="consultation_doctor_menu"
+              name="Consultation Doctor"
+              parent="appointment_booking_root_menu"
+              action="consultation_doctor_action"
+              sequence="20"/>
+
+</odoo>
