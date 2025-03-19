@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="taf.list">
+      <field name="name">TAF list</field>
+      <field name="model">taf.taf</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </list>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="taf.action_window">
+      <field name="name">TAF window</field>
+      <field name="res_model">taf.taf</field>
+      <field name="view_mode">list,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="taf.action_server">
+      <field name="name">TAF server</field>
+      <field name="model_id" ref="model_taf_taf"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "list,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="TAF" id="taf.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="taf.menu_1" parent="taf.menu_root"/>
+    <menuitem name="Menu 2" id="taf.menu_2" parent="taf.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="taf.menu_1_list" parent="taf.menu_1"
+              action="taf.action_window"/>
+    <menuitem name="Server to list" id="taf" parent="taf.menu_2"
+              action="taf.action_server"/>
+-->
+  </data>
+</odoo>

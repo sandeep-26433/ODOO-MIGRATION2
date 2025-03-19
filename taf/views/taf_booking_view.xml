@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Appointment User List View -->
+        <record id="view_taf_list" model="ir.ui.view">
+            <field name="name">taf.bookings.list</field>
+            <field name="model">taf.bookings</field>
+            <field name="arch" type="xml">
+                <list string="Appointment Users">
+                    <field name="patient_name"/>
+                    <field name="age"/>
+                     <field name="phone"/>
+                    <field name="booking_date"/>
+                    <field name="status"/>
+                    
+                
+                     <!-- <field name="status" widget="selection"/> -->
+                    
+
+                    <!-- <field name="email"/> -->
+                    <!-- <field name="phone"/>
+                    <field name="dob"/>
+                    <field name="age"/> -->
+                    <!-- <field name="x_taf" string="API User ID"/> -->
+                </list>
+            </field>
+        </record>
+
+        <!-- Appointment User Form View -->
+        <record id="view_taf" model="ir.ui.view">
+            <field name="name">taf.bookings.form</field>
+            <field name="model">taf.bookings</field>
+            <field name="arch" type="xml">
+                <form string="Taf Bookings">
+                    <sheet>
+                        <group>
+                            <!-- <field name="x_taf" readonly="1"/> -->
+                            <field name="patient_name"/>
+                            <field name="email"/>
+                            <field name="phone"/>
+                            <field name="dob"/>
+                            <field name="age"/>
+                            <field name="health_concerns"/>
+                             <field name="status"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Contact Form View Modification -->
+        <record id="view_res_partner_form" model="ir.ui.view">
+            <field name="name">res.partner.form.x_taf</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group" position="inside">
+                    <field name="x_taf" readonly="1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Appointment User Action -->
+        <record id="taf_action" model="ir.actions.act_window">
+            <field name="name">Taf Bookings</field>
+            <field name="res_model">taf.bookings</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+     
+      
+          </data>
+</odoo>

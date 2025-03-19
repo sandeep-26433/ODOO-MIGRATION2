@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Root menu for Property Ads -->
+    <menuitem name="TAF" id="menu_root_taf_bookings" sequence="3"/>
+
+    <!-- Property Ads Submenu -->
+    <menuitem id="menu_taf_bookings" name="Bookings" parent="menu_root_taf_bookings"/>
+    <menuitem id="menu_taf_users" name="Taf Bookings" parent="menu_taf_bookings" action="taf_action"/>
+
+    <!-- Settings Submenu -->
+    
+</odoo>
+
+   
+   
+      
