@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- List View for Medicine Lines -->
+  <record id="view_doctor_medicine_lines_list" model="ir.ui.view">
+    <field name="name">doctor.medicine.lines.list</field>
+    <field name="model">doctor.medicine.lines</field>
+    <field name="arch" type="xml">
+      <list string="Medicine Lines">
+        <field name="medicine_id"/>
+        <field name="dosage_id"/>
+        <field name="days"/>
+        <field name="course"/>
+        <field name="quantity"/>
+        <field name="prescription_date"/>  <!-- Add prescription_date to list view -->
+      </list>
+    </field>
+  </record>
+  
+  <!-- Form View for Medicine Lines -->
+  <record id="view_doctor_medicine_lines_form" model="ir.ui.view">
+    <field name="name">doctor.medicine.lines.form</field>
+    <field name="model">doctor.medicine.lines</field>
+    <field name="arch" type="xml">
+      <form string="Medicine Line">
+        <sheet>
+          <group>
+            <field name="medicine_id"/>
+            <field name="dosage_id"/>
+          </group>
+          <group>
+            <field name="days" placeholder="Enter Value"/>
+            <!-- Use radio widget for 'course' field -->
+            <field name="course" widget="radio"/>
+            <field name="quantity" placeholder="Enter Value"/>
+            <field name="prescription_date"/>  <!-- Add prescription_date to list view -->
+
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  
+  <!-- Action to display Medicine Lines -->
+  <record id="action_doctor_medicine_lines" model="ir.actions.act_window">
+    <field name="name">Medicine Lines</field>
+    <field name="res_model">doctor.medicine.lines</field>
+    <field name="view_mode">list,form</field>
+  </record>
+</odoo>

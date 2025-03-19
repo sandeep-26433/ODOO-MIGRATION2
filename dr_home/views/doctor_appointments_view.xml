@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <!-- List View for Doctor Appointments -->
+  <record id="view_doctor_appointments_list" model="ir.ui.view">
+    <field name="name">doctor.appointments.list</field>
+    <field name="model">doctor.appointments</field>
+    <field name="arch" type="xml">
+      <list string="Doctor Appointments">
+         <field name="appointment_date" />
+        <field name="reference_id" />
+        <field name="patient_id" />
+        <field name="op_number" />
+        <field name="patient_type"/>
+        <field name="state" /> <!-- Status as text -->
+        
+      </list>
+    </field>
+  </record>
+
+  <!-- Form View for Doctor Appointments -->
+  <record id="view_doctor_appointments_form" model="ir.ui.view">
+    <field name="name">doctor.appointments.form</field>
+    <field name="model">doctor.appointments</field>
+    <field name="arch" type="xml">
+      <form string="Doctor Appointments">
+        <sheet>
+          <div class="oe_title">
+            <h1>
+              <field name="patient_id" readonly="1" nolabel="1" />
+            </h1>
+          </div>
+
+          <!-- Button to Show Past Appointments -->
+          <button name="action_show_past_appointments" type="object" string="OP Summary"
+            class="btn btn-primary" />
+
+          <!-- Status Bar Moved to Right -->
+          <div class="oe_right" style="text-align: right;">
+            <field name="state" widget="statusbar" options="{'clickable': '1'}" nolabel="1" />
+          </div>
+
+          <!-- Patient & Appointment Details -->
+          <group>
+            <group>
+              <field name="reference_id" readonly="1" />
+              <field name="patient_type" readonly="1" />
+              <field name="phone" readonly="1" />
+              <field name="appointment_date" readonly="1" />
+              <field name="op_number" readonly="1" />
+
+            </group>
+          </group>
+
+          <!-- Notebook Tabs -->
+          <notebook>
+            <page string="COMPLAINTS">
+              <div style="display: flex; justify-content: space-between;">
+                <div style="flex: 1; margin-right: 20px;">
+                  <div
+                    style="font-size: 18px; color: darkblue; font-weight: bold; margin-top: 20px;">
+                    Complaints
+                  </div>
+
+                  <!-- Each Complaint field with its Label -->
+                  <div style="margin-bottom: 10px;">
+                    <label for="chief_complaint">
+                      <b>Chief Complaint</b>
+                    </label>
+                    <field name="chief_complaint" />
+                  </div>
+                  <div style="margin-bottom: 10px;">
+                    <label for="associated_complaint">
+                      <b>Associated Complaint</b>
+                    </label>
+                    <field name="associated_complaint" />
+                  </div>
+                  <div style="margin-bottom: 10px;">
+                    <label for="past_history">
+                      <b>Past History</b>
+                    </label>
+                    <field name="past_history" />
+                  </div>
+                  <div style="margin-bottom: 10px;">
+                    <label for="family_history">
+                      <b>Family History</b>
+                    </label>
+                    <field name="family_history" />
+                  </div>
+                  <div style="margin-bottom: 10px;">
+                    <label for="present_history">
+                      <b>Present History</b>
+                    </label>
+                    <field name="present_history" />
+                  </div>
+                  <div style="margin-bottom: 10px;">
+                    <label for="diagnosis">
+                      <b>Diagnosis</b>
+                    </label>
+                    <field name="diagnosis" />
+                  </div>
+                  <div style="margin-bottom: 10px;">
+                    <label for="investigations">
+                      <b>Investigations</b>
+                    </label>
+                    <field name="investigations" />
+                  </div>
+                  <div style="margin-bottom: 10px;">
+                    <label for="others">
+                      <b>Others</b>
+                    </label>
+                    <field name="others" />
+                  </div>
+                  <div style="margin-bottom: 10px;">
+                    <label for="artava">
+                      <b>ARTAVA</b>
+                    </label>
+                    <field name="artava" />
+                  </div>
+                  <div style="margin-bottom: 10px;">
+                    <label for="nadi">
+                      <b>NADI</b>
+                    </label>
+                    <field name="nadi" />
+                  </div>
+                  <div style="margin-bottom: 10px;">
+                    <label for="agni">
+                      <b>AGNI</b>
+                    </label>
+                    <field name="agni" />
+                  </div>
+                  <div style="margin-bottom: 10px;">
+                    <label for="mala">
+                      <b>MALA</b>
+                    </label>
+                    <field name="mala" />
+                  </div>
+                  <div style="margin-bottom: 10px;">
+                    <label for="mutra">
+                      <b>MUTRA</b>
+                    </label>
+                    <field name="mutra" />
+                  </div>
+                  <div style="margin-bottom: 10px;">
+                    <label for="nidra">
+                      <b>NIDRA</b>
+                    </label>
+                    <field name="nidra" />
+                  </div>
+                  <div style="margin-bottom: 10px;">
+                    <label for="manas">
+                      <b>MANAS</b>
+                    </label>
+                    <field name="manas" />
+                  </div>
+                  <div style="margin-bottom: 10px;">
+                    <label for="panchakarma_advice">
+                      <b>Panchakarma Advice</b>
+                    </label>
+                    <field name="panchakarma_advice" />
+                  </div>
+                </div>
+
+                <!-- Patient History Section (Right Side) -->
+                <div
+                  style="flex: 1; overflow-y: auto; height: 900px; border: 1px solid #ddd; padding: 10px;">
+                  <div style="font-size: 18px; color: darkred; font-weight: bold; margin-top: 20px;">
+                    Patient History
+                  </div>
+                  <field name="previous_complaints_text" widget="html" />
+                </div>
+              </div>
+            </page>
+
+            <!-- VITALS Tab -->
+            <page string="VITALS">
+              <group>
+                <field name="htn" />
+                <field name="dm" />
+                <field name="th" />
+              </group>
+            </page>
+
+            <!-- PRESCRIBED Tab -->
+            <page string="PRESCRIBED">
+              <group>
+                <group string="Previous Medicines">
+                  <field name="previous_medicine_line_ids">
+                    <!-- list view with pagination for Previous Medicines -->
+                    <list editable="bottom" limit="10">
+                      <field name="medicine_id" />
+                      <field name="dosage_id" />
+                      <field name="course" />
+                      <field name="days" />
+                      <field name="quantity" />
+                      <field name="usage" />
+                      <field name="prescription_date" />  <!-- Added prescription_date to previous
+                      medicines -->
+                    </list>
+                  </field>
+                </group>
+
+                <group string="Prescribed Medicines">
+                  <field name="medicine_line_ids">
+                    <list create="1" edit="1">
+                      <field name="medicine_id" />
+                      <field name="dosage_id" />
+                      <field name="course" />
+                      <field name="days" />
+                      <field name="quantity" />
+                      <field name="usage" />
+                      <field name="prescription_date" />  <!-- Added prescription_date to current
+                      medicines -->
+                    </list>
+                    <form string="MEDICINES">
+                      <group>
+                        <field name="medicine_id" />
+                        <field name="dosage_id" />
+                      </group>
+                      <group>
+                        <field name="course" />
+                        <field name="days" />
+                        <field name="quantity" />
+                        <field name="usage" />
+                        <field name="prescription_date" />  <!-- Added prescription_date in the form -->
+                      </group>
+                    </form>
+                  </field>
+                </group>
+              </group>
+              <group string="Notes">
+                <field name="new_compound" placeholder="Enter New Compound" />
+                <field name="ingredients" placeholder="Enter Ingredients" />
+                <field name="diet" />
+                <field name="special_note" placeholder="Enter Special Note" />
+              </group>
+            </page>
+          </notebook>
+
+          <!-- Attachments Section Moved After All Tabs -->
+          <group string="Attachments">
+            <field name="attachment_ids" widget="many2many_binary"
+              options="{'preview_image': True, 'show_preview': True}" />
+          </group>
+
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <!-- Doctor Appointments Action Window -->
+  <record id="action_doctor_appointments" model="ir.actions.act_window">
+    <field name="name">Doctor Appointments</field>
+    <field name="res_model">doctor.appointments</field>
+    <field name="view_mode">list,form</field>
+    <field name="context">{}</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">No Appointments Found!</p>
+    </field>
+  </record>
+
+
+  <!-- Doctor Appointments Menu -->
+  <menuitem id="menu_doctor_home_root" name="Doctor Home" sequence="10" />
+  <menuitem id="menu_doctor_appointments" name="Doctor Appointments" parent="menu_doctor_home_root"
+    action="action_doctor_appointments" sequence="1" />
+
+</odoo>

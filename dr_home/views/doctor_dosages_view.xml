@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree View for Dosages -->
+    <record id="view_doctor_dosages_tree" model="ir.ui.view">
+        <field name="name">doctor.dosages.tree</field>
+        <field name="model">doctor.dosages</field>
+        <field name="arch" type="xml">
+            <list string="Dosages">
+                <field name="dosage" width="150"/>
+                <field name="description" width="250"/>  <!-- Show Description in List View -->
+            </list>
+        </field>
+    </record>
+    
+    <!-- Form View for Dosages -->
+    <record id="view_doctor_dosages_form" model="ir.ui.view">
+        <field name="name">doctor.dosages.form</field>
+        <field name="model">doctor.dosages</field>
+        <field name="arch" type="xml">
+            <form string="Dosage">
+                <sheet>
+                    <group>
+                        <field name="dosage" placeholder="Enter Dosage" nolabel="0"/>
+                        <field name="description" placeholder="Auto-filled Description" readonly="1"/>  <!-- Make it Read-Only -->
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <!-- Action to display Dosages -->
+    <record id="action_doctor_dosages" model="ir.actions.act_window">
+        <field name="name">Dosages</field>
+        <field name="res_model">doctor.dosages</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    
+    <!-- Menu Item for Dosages -->
+    <menuitem id="menu_doctor_dosages"
+              name="Dosages"
+              parent="menu_doctor_home_root"
+              action="action_doctor_dosages"
+              sequence="3"/>
+</odoo>

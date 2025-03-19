@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree View for Medicines -->
+    <record id="view_doctor_medicines_tree" model="ir.ui.view">
+        <field name="name">doctor.medicines.tree</field>
+        <field name="model">doctor.medicines</field>
+        <field name="arch" type="xml">
+            <list string="Medicines">
+                <field name="medicine_name" width="150"/>
+                <field name="description" width="250"/>  <!-- Added Description in List View -->
+            </list>
+        </field>
+    </record>
+    
+    <!-- Form View for Medicines -->
+    <record id="view_doctor_medicines_form" model="ir.ui.view">
+        <field name="name">doctor.medicines.form</field>
+        <field name="model">doctor.medicines</field>
+        <field name="arch" type="xml">
+            <form string="Medicine">
+                <sheet>
+                    <group>
+                        <field name="medicine_name" placeholder="Enter Medicine Name" nolabel="0"/>
+                        <field name="description" placeholder="Auto-filled Description" readonly="1"/>  <!-- Make it Read-Only -->
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <!-- Action to display Medicines -->
+    <record id="action_doctor_medicines" model="ir.actions.act_window">
+        <field name="name">Medicines</field>
+        <field name="res_model">doctor.medicines</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    
+    <!-- Menu Item for Medicines -->
+    <menuitem id="menu_doctor_medicines"
+              name="Medicines"
+              parent="menu_doctor_home_root"
+              action="action_doctor_medicines"
+              sequence="2"/>
+</odoo>

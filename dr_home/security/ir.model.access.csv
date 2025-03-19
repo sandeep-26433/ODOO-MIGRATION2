@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_doctor_appointments_user,doctor.appointments: User Access,model_doctor_appointments,base.group_user,1,1,1,1
+access_doctor_medicines_user,doctor.medicines: User Access,model_doctor_medicines,base.group_user,1,1,1,1
+access_doctor_dosages_user,doctor.dosages: User Access,model_doctor_dosages,base.group_user,1,1,1,1
+access_doctor_medicine_lines_user,doctor.medicine.lines: User Access,model_doctor_medicine_lines,base.group_user,1,1,1,1
